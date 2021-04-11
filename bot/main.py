@@ -58,10 +58,7 @@ def cmd_show_school_info(message):
             bot.send_photo(message.chat.id, pic)
         bot.send_message(message.chat.id, 'Подождите немного, я скоро отвечу :)')
     school_info_text = web_parser.school_info(message_text)
-    if school_info_text == '':
-        bot.send_message(message.chat.id, 'Я не смог найти новости этой школы :(')
-    else:
-        bot.send_message(message.chat.id, school_info_text, disable_web_page_preview=True, parse_mode='HTML')
+    bot.send_message(message.chat.id, school_info_text, disable_web_page_preview=True, parse_mode='HTML')
     bot.send_message(message.chat.id, 'Вы можете почитать новости другой школы из списка /schools\n'
                                       'Вернуться в начало: /start')
 

@@ -213,7 +213,7 @@ def school_info(school_num):
     year_ago = today.replace(year=today.year - 1)
     df = df[df['Date'] >= year_ago]
     if df.empty:
-        return ''
+        return 'Я не смог найти новости этой школы :('
     else:
         df_no_dupl = df.groupby(['Date', 'Headline']).agg({'Keywords': any, 'Link': list}) \
             .reset_index()
